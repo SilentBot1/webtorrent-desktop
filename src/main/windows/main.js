@@ -15,7 +15,6 @@ const main = module.exports = {
 }
 
 const { app, BrowserWindow, screen } = require('electron')
-const debounce = require('debounce')
 
 const config = require('../../config')
 const log = require('../log')
