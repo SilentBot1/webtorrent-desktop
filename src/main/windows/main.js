@@ -90,13 +90,13 @@ function init (state, options) {
     win.setMenuBarVisibility(true)
   })
 
-  win.on('move', debounce(e => {
-    send('windowBoundsChanged', e.sender.getBounds())
-  }, 1000))
+  win.on('moved', () => {
+    send('windowBoundsChanged', win.getBounds())
+  })
 
-  win.on('resize', debounce(e => {
-    send('windowBoundsChanged', e.sender.getBounds())
-  }, 1000))
+  win.on('resized', () => {
+    send('windowBoundsChanged', win.getBounds())
+  })
 
   win.on('close', e => {
     if (process.platform !== 'darwin') {
